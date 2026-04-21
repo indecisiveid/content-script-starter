@@ -1,0 +1,183 @@
+filters:
+  and:
+    - file.inFolder("{{VAULT_INFOLDER_PATH}}/content-delivery")
+    - note.status
+properties:
+  note.status:
+    displayName: Status
+  note.funnel_layer:
+    displayName: Funnel
+  note.awareness_level:
+    displayName: Awareness
+  note.pillar:
+    displayName: Pillar
+  note.format:
+    displayName: Format
+  note.scheduled_date:
+    displayName: Scheduled
+  note.posted_date:
+    displayName: Posted
+  note.tags:
+    displayName: Tags
+  note.topic_blurb:
+    displayName: Topic
+views:
+  - type: table
+    name: Inbox
+    filters:
+      and:
+        - status == "idea"
+    order:
+      - file.name
+      - funnel_layer
+      - tags
+      - awareness_level
+      - pillar
+      - format
+    sort:
+      - property: file.name
+        direction: ASC
+      - property: funnel_layer
+        direction: ASC
+    columnSize:
+      file.name: 410
+      note.funnel_layer: 180
+      note.awareness_level: 180
+  - type: table
+    name: Ready to film
+    filters:
+      and:
+        - note.status == "scripted"
+    order:
+      - file.name
+      - funnel_layer
+      - awareness_level
+      - tags
+      - scheduled_date
+    sort:
+      - property: funnel_layer
+        direction: ASC
+    columnSize:
+      file.name: 410
+      note.funnel_layer: 180
+      note.awareness_level: 180
+      note.tags: 229
+  - type: table
+    name: In progress
+    filters:
+      or:
+        - note.status == "in-progress"
+        - note.status == "scripted"
+        - note.status == "filmed"
+    order:
+      - file.name
+      - status
+      - scheduled_date
+  - type: table
+    name: Slipped
+    filters:
+      and:
+        - note.scheduled_date
+        - note.status != "posted"
+    order:
+      - scheduled_date
+      - file.name
+  - type: table
+    name: Posted
+    filters:
+      and:
+        - note.status == "posted"
+    order:
+      - posted_date
+      - file.name
+      - funnel_layer
+      - pillar
+    sort:
+      - property: funnel_layer
+        direction: ASC
+      - property: posted_date
+        direction: DESC
+    columnSize:
+      note.funnel_layer: 180
+  - type: table
+    name: By awareness
+    filters:
+      and:
+        - note.status != "posted"
+    order:
+      - awareness_level
+      - file.name
+      - funnel_layer
+      - pillar
+      - format
+    columnSize:
+      note.awareness_level: 180
+      note.funnel_layer: 180
+  - type: table
+    name: By funnel
+    filters:
+      and:
+        - note.status != "posted"
+    order:
+      - funnel_layer
+      - file.name
+      - awareness_level
+      - pillar
+      - format
+    columnSize:
+      note.funnel_layer: 180
+      note.awareness_level: 180
+  - type: table
+    name: By pillar
+    filters:
+      and:
+        - note.status != "posted"
+    order:
+      - pillar
+      - file.name
+      - funnel_layer
+      - awareness_level
+      - format
+    columnSize:
+      note.funnel_layer: 180
+      note.awareness_level: 180
+  - type: table
+    name: Trend content
+    filters:
+      and:
+        - note.tags.contains("Trend")
+    order:
+      - file.name
+      - tags
+      - funnel_layer
+      - awareness_level
+      - pillar
+      - status
+    sort:
+      - property: funnel_layer
+        direction: ASC
+    columnSize:
+      note.funnel_layer: 180
+      note.awareness_level: 180
+  - type: table
+    name: Caveman trend
+    filters:
+      and:
+        - note.tags.contains("Caveman")
+    order:
+      - file.name
+      - funnel_layer
+      - awareness_level
+      - pillar
+      - status
+    sort:
+      - property: funnel_layer
+        direction: ASC
+    columnSize:
+      note.funnel_layer: 180
+      note.awareness_level: 180
+  - type: table
+    name: Active
+    filters:
+      and:
+        - status == "active"
