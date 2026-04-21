@@ -53,14 +53,27 @@ Also detect if Bases plugin is enabled by checking `{VAULT_ROOT}/.obsidian/core-
 
 Store as `BRAND_SLUG`. Also capture a Title-case version `BRAND` (e.g. "Pokito", "MyProduct").
 
+Then detect whether they've run `second-brain-starter` already — check for `{VAULT_ROOT}/context/_about-me.md`, `{VAULT_ROOT}/projects/`, or `{VAULT_ROOT}/templates/Daily Note.md`. If any exist, assume they have the second-brain convention installed.
+
 Then ask:
 
-> And where should the marketing folder live inside your vault? Two common choices:
->
-> 1. `projects/{BRAND_SLUG}/marketing/` — if your vault is project-organized (matches the second-brain-starter convention)
-> 2. `marketing/` at vault root — if you only use the vault for marketing
->
-> Pick 1, 2, or type a custom path.
+> And where should the marketing folder live inside your vault?
+
+**If second-brain-starter detected:** Recommend option 1 as the default:
+
+> I see you've got the second-brain-starter setup — I'll put the marketing folder at `projects/{BRAND_SLUG}/marketing/` to match that convention. Sound right? (Y/n)
+
+If they confirm, use that path. If they decline, show them:
+> 1. `projects/{BRAND_SLUG}/marketing/` (second-brain-starter convention)
+> 2. `marketing/` at vault root
+> 3. Custom path
+
+**If second-brain-starter NOT detected:** Offer the full choice with option 2 as the default:
+
+> Two common choices:
+> 1. `projects/{BRAND_SLUG}/marketing/` — use this if you plan to install the second-brain-starter later (recommended if your vault will hold more than just marketing)
+> 2. `marketing/` at vault root — simplest if you only use this vault for marketing
+> 3. Custom path
 
 Store as `VAULT_PATH` (absolute) and `VAULT_INFOLDER_PATH` (relative-to-vault — this goes in the Bases file's `file.inFolder()` predicate).
 

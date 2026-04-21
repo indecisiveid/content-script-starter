@@ -2,7 +2,15 @@
 
 A Claude Code + Obsidian system for generating short-form video scripts for any product, calibrated to your voice and improving itself from real performance data.
 
-Sibling to [`second-brain-starter`](https://github.com/indecisiveid/second-brain-starter). Standalone — it doesn't require the second-brain-starter, just Obsidian + Claude Code.
+Sibling to [`second-brain-starter`](https://github.com/indecisiveid/second-brain-starter).
+
+## Recommended setup path
+
+**If you don't already have a second brain:** install [`second-brain-starter`](https://github.com/indecisiveid/second-brain-starter) **first**. That gives you the base vault (daily notes, project structure, `/morning`, `/wrap`, `/capture`, etc.). Then install this repo on top — it adds the marketing/script layer into `projects/<your-brand>/marketing/` without touching the rest of the vault.
+
+**If you only want script generation and nothing else:** install this repo alone. The wizard will create a minimal vault with just the marketing folder. You can always add the second brain later.
+
+**If you already have an Obsidian vault from some other setup:** install this repo alone. The wizard asks where to put the marketing folder so it drops in alongside your existing structure.
 
 ---
 
