@@ -1,13 +1,14 @@
 # /script-from-idea — Generate a Script from a {{BRAND}} Content Idea
 
-Runs the Layer 1 script generator against an idea in the content-delivery database and produces a ready-to-film script following the established template. Handles optional pseudo-script drafts.
+Runs the {{BRAND}} Layer 1 script generator against an idea in the content-delivery database and produces a ready-to-film script following the established template. Handles optional pseudo-script drafts.
 
 ## Usage
 
 `/script-from-idea [slug-or-title-fragment]`
 
 Examples:
-- `/script-from-idea morning-routine-reframe`
+- `/script-from-idea accountability-system-examples`
+- `/script-from-idea milestone-management`
 - `/script-from-idea` (no args — shows the Inbox and asks which idea to script)
 
 ## Steps
@@ -31,7 +32,7 @@ Examples:
 
 4. **Identify gaps.** Confirm awareness_level, funnel_layer, and the body payload (what are the actual examples / points / categories?). Look for the body payload in order: `## Pseudo Script` → `topic_blurb` → the idea's body. Only ask the user if genuinely unknowable. Do not re-ask for frontmatter fields that are already set.
 
-5. **Generate the script** per the script template memory:
+5. **Generate the script** per the `project_script_template.md` memory:
    - H1 title + intro paragraph
    - `## HOOK (0–3 sec) — 3 variations` (A/B/C, each calibrated to awareness level)
    - `## ANCHOR (3–6 sec)`
@@ -42,6 +43,7 @@ Examples:
    - `## Pattern interrupts (timestamps)`
    - `## A/B test suggestion`
    - `## Short version (~30 sec / ~75 words)`
+   - `## Title (on-screen overlay)` — 3-4 word ALL CAPS overlay displayed at the top of the video throughout filming. Calibrated per funnel × awareness (see Script Voice Rules.md → "Title rules"). Stands alone in a feed; no metaphors; no question marks in short titles; no brand name unless Layer 5.
    - `## Caption`
 
    Each scripted line uses a shot block. The block format depends on `shot_format` from the idea frontmatter:
@@ -73,7 +75,7 @@ Examples:
    **On-screen:** <optional overlay text — can match the visual or be omitted if the visual is the overlay>
    ````
 
-   For `visual` blocks, suggest concrete simple visuals: a single word with a red X, a rough sketch, a basic shape, a meme-style slide, a calendar with a mark, a checkbox, an icon. Think "memes in PowerPoint," not "designed infographic." The user will build them in Figma or slides.
+   For `visual` blocks, suggest concrete simple visuals: a single word with a red X, a rough sketch, a basic shape, a meme-style slide, a calendar with a mark, a checkbox, an icon. Think "memes in PowerPoint," not "designed infographic." the user will build them in Figma or slides.
 
    Do NOT add a `## Metadata` section — frontmatter covers it.
 
@@ -83,7 +85,7 @@ Examples:
 
 8. **Update the idea file:** set `status: scripted`, add `script: "[[<script-slug-without-md>]]"`. Preserve all other frontmatter and body content.
 
-9. **Optional Notion push.** If `notion_source` is set and the Notion MCP is configured, ask the user: "Push this script to the Notion page's 'Actual Script' toggle?" Default yes. Skip this step entirely if the Notion MCP isn't installed.
+9. **Optional Notion push.** If `notion_source` is set, ask the user: "Push this script to the Notion page's 'Actual Script' toggle?" Default yes. Use `mcp__b5be4f6b-...__notion-update-page` with `command: update_content` to replace `## Actual Script {toggle="true"}\n<empty-block/>` with tab-indented script content.
 
 10. **Report back** with: script file path, word count, runtime estimate, any gaps that required user input, any additions beyond the pseudo-script, Notion sync status, and a suggested next step.
 
@@ -106,6 +108,6 @@ Short version of the current rules (mirrored here for context, authoritative cop
 - Direct instruction > reframe.
 - Binary choices > soft exits.
 - First-listen clarity.
-- When the user's pseudo-script is abstract, mirror their voice. The rules govern Claude's additions, not their own language.
+- When the user's pseudo-script is abstract, mirror his voice. The rules govern Claude's additions, not his own language.
 
 $ARGUMENTS

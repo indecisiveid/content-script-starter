@@ -41,7 +41,7 @@ Updated automatically by `/review-script-performance` every 10 posts using top v
 - Don't write reframes for the sake of reframing. A reframe is only useful if it makes the next action clearer.
 - Don't write lines that sound like LinkedIn quotes.
 
-### When Christian's pseudo-script is abstract
+### When the user's pseudo-script is abstract
 
 Mirror the voice. If his draft uses a metaphor, his body should too. Don't overwrite his voice with this rules doc — the rules govern Claude's additions, not his own language.
 
@@ -66,6 +66,34 @@ Mirror the voice. If his draft uses a metaphor, his body should too. Don't overw
 
 - Calibrated to funnel layer (Layer 1 = no call, Layer 5 = direct ask)
 - End on a concrete instruction or binary choice, never a metaphor
+
+### Title rules (the on-screen overlay above your head)
+
+Every script carries a `## Title (on-screen overlay)` section near the bottom. This is the persistent text displayed at the top of the video throughout filming — what viewers read as they land on the post, before they catch the audio.
+
+**Constraints:**
+- **≤ 4 words. 3 words is ideal.**
+- **ALL CAPS** for overlay legibility.
+- **Stands alone in a feed** — someone scrolling should grok the thesis from the title alone.
+- **Reinforces the hook, doesn't replicate it.** The title is the compressed version of the hook's idea, not the hook line verbatim.
+- **No metaphors** — same voice rule as the rest. Direct, literal, punchy.
+
+**Calibration by funnel × awareness** (use this table when generating a title):
+
+| Funnel × Awareness | Title style | Examples |
+|---|---|---|
+| L1 + A (Unaware) | Observational reframe, universal statement | `GOAL BAD, SYSTEM GOOD` · `NOBODY SAYS THIS` |
+| L1 / L2 + B (Problem-Aware) | Name the pain sharply | `MOTIVATION IS A LIE` · `THE RESET PROBLEM` |
+| L2 / L3 + C (Solution-Aware) | Taxonomy / category thesis | `STRUCTURAL ALWAYS WINS` · `HABIT TRACKERS LIE` |
+| L3 / L4 + B-C | "Here's what" / mechanism naming | `CLOSE THE BACKDOOR` · `30 DAYS, APP ONLY` |
+| L4 + D (Product-Aware) | Proof / specifics | `WATCH THIS WORK` · `EVERY DAY STRONGER` |
+| L5 + B-E | Direct ask / product callout | `BUILT IT FOR ME` · `EVERY ALARM FAILED ME` · `LINK IN BIO` |
+
+**Anti-patterns:**
+- Don't restate the hook line (the hook is spoken; the title is read).
+- Don't use complete sentences with punctuation mid-title (except a comma for binary contrast like `GOAL BAD, SYSTEM GOOD`).
+- Don't include a question mark in a 3-word title — it reads as weak. Make it a statement.
+- Don't brand-name in the title unless the video is Layer 5 (conversion). At L1-L3, the brand stays out of the title.
 
 ### Shot block format — two variants
 

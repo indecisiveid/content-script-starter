@@ -59,7 +59,9 @@ Key rules:
 13. `---`
 14. `## Short version (~30 sec / ~Nwords)`
 15. `---`
-16. `## Caption` (Line 1, Line 2)
+16. `## Title (on-screen overlay)` — 3-4 word ALL CAPS overlay at top of video
+17. `---`
+18. `## Caption` (Line 1, Line 2)
 
 ### Per-line shot format
 
@@ -111,7 +113,7 @@ Short version (mirrored for context only — authoritative copy in vault):
 - Direct instruction > reframe
 - Binary choices > soft exits
 - First-listen clarity
-- When Christian's pseudo-script is abstract, mirror his voice — the rules govern Claude's additions only
+- When the user's pseudo-script is abstract, mirror his voice — the rules govern Claude's additions only
 
 ### Anti-patterns (do not do these)
 
